@@ -1,0 +1,10 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {dirname,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {verificationAssets} from '../windows/verification.mjs';
+const root=dirname(dirname(fileURLToPath(import.meta.url))),out=join(root,'.build/extension-preview');
+await mkdir(out,{recursive:true});
+const assets=await verificationAssets(root);
+await writeFile(join(out,'index.html'),assets.get('host.html'));
+for(const name of ['extension.js','controls.js'])await writeFile(join(out,name),assets.get(name));
+console.log(out);

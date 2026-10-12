@@ -1,0 +1,15 @@
+{
+  "name": "codex-startup-animation-windows",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Windows launchers for the original Codex startup animation",
+  "scripts": {
+    "test": "node --test tools/extension.test.mjs tools/windows.test.mjs",
+    "preview": "node windows/run.mjs --mode preview",
+    "verify": "node windows/run.mjs --mode verify",
+    "build:verification": "node tools/build-verification.mjs",
+    "start": "node windows/run.mjs --mode integrated",
+    "diagnose": "node windows/run.mjs --mode probe"
+  },
+  "engines": { "node": ">=22" }
+}
